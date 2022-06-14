@@ -22,3 +22,17 @@ import * as bookService from '../services/book.service';
       next(error);
     }
   }
+
+  export const getBook = async (req, res, next) => {
+    try {
+      const data = await bookService.getBook(req.body.userId,req.params._id);
+      res.status(HttpStatus.ACCEPTED).json({
+        code: HttpStatus.ACCEPTED,
+        data: data,
+        message: 'Returned a single Book!!'
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+

@@ -13,3 +13,12 @@ export const getAllBooks = async () => {
         return data;
     }
 }
+
+export const getBook = async (userId,_id) => {
+    console.log("returning particualr Book: ", userId);
+    const data = await Book.findById({userId, _id});
+    if (data == null) {
+        throw new Error("Book by this id don't exist");
+    }
+    return data;
+}
