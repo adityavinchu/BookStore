@@ -1,4 +1,10 @@
+
+import { number } from '@hapi/joi';
+import { Schema, model } from 'mongoose';
+
+const bookSchema = new Schema(
 {
+
     userId: {
       type: String
     },
@@ -30,3 +36,9 @@
       default: false
     }
   },
+  {
+    timestamps: true
+}
+);
+
+export default model('Book', bookSchema);
